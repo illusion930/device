@@ -44,6 +44,8 @@ resource : unzip_package
 	
 	java -jar ${PORT_TOOLS}/apktool.jar d -f update/system/framework/framework-res.apk  out/framework-res
 	
+	${PORT_TOOLS}/add_tag.sh
+	
 	#compile framework-res.apk
 	${PORT_TOOLS}/aapt_for_hm2 p -f -m -x -z -J out/gen -S ${PORT_BUILD}/res-build/oppo-overlay/res/ -S out/framework-res/res  -M out/framework-res/AndroidManifest.xml -F out/framework-res-unsigned.apk -P out/gen/public_resources.xml -A out/framework-res/assets --auto-add-overlay > compile.framework-res.log
 	
