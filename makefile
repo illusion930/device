@@ -121,12 +121,12 @@ makesmali : ${DST_JAR_OUT}
 getsmali : cleansmali ${DST_SMALI_OUT} ${TMP_OUT_DIR}
 .PHONY : getsmali
 
-firstpatch : getsmali resource
+#firstpatch : getsmali resource
 #    ifneq ($(ORGIN_SECOND_FRAMEWORK_NAME), )
 #		${PORT_TOOLS}/copy_fold.sh smali/${ORGIN_SECOND_FRAMEWORK_NAME}.out/ smali/framework.jar.out/
 #		rm -rf smali/${ORGIN_SECOND_FRAMEWORK_NAME}.out
 #    endif
-	${PORT_TOOLS}/patch_color_framework.sh ${PORT_ROOT}/smali/android ${PORT_ROOT}/smali/color ${PWD}/smali/
+#	${PORT_TOOLS}/patch_color_framework.sh ${PORT_ROOT}/smali/android ${PORT_ROOT}/smali/color ${PWD}/smali/
 	
 fullota : ${DST_JAR_OUT}
 	@echo "Build the full update package"
