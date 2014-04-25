@@ -18,6 +18,8 @@ DST_SMALI_OUT := $(addsuffix .jar.out,$(COLOR_FRAMEWORK_JARS))
 TMP_SYSTEM_DIR := ${PWD}/tmp_system
 DST_JAR_OUT := $(addsuffix .jar,$(COLOR_FRAMEWORK_JARS))
 
+include $(PORT_BUILD)/util.mk
+
 default :
 	@echo "This is default, do nothing "
 	@echo "This is project written by oppo"
