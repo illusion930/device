@@ -126,26 +126,6 @@ getsmali : cleansmali ${DST_SMALI_OUT} ${TMP_OUT_DIR}
 #    endif
 #	${PORT_TOOLS}/patch_color_framework.sh ${PORT_ROOT}/smali/android ${PORT_ROOT}/smali/color ${PWD}/smali/
 	
-fullota : ${DST_JAR_OUT}
-	@echo "Build the full update package"
-	rm -rf new-update/
-	${PORT_TOOLS}/copy_fold.sh update/ new-update/
-	echo "ro.build.author=${AUTHOR_NAME}" >> new-update/system/build.prop
-	echo "ro.build.channel=${FROM_CHANNEL}" >> new-update/system/build.prop
-	rm -rf new-update/system/app/*
-	@echo "${PORT_BUILD}/ColorSystem/*"
-	${PORT_TOOLS}/copy_fold.sh ${PORT_BUILD}/ColorSystem new-update/system
-	${PORT_TOOLS}/copy_fold.sh out/framework new-update/system/framework
-	${PORT_TOOLS}/copy_fold.sh out/framework-res.apk new-update/system/framework/
-	${PORT_TOOLS}/copy_fold.sh out/oppo-framework-res.apk new-update/system/framework/
-
-#we will use $(CUSTOM_UPDATE) to cover, so you need put your change file or some apk can't be deleted
-	${PORT_TOOLS}/copy_fold.sh ${CUSTOM_UPDATE} new-update/
-
-	${PORT_TOOLS}/resign.sh dir new-update
-	rm -f color-update.zip
-	cd new-update/; zip -q -r -y color-update.zip .; mv color-update.zip ..
-	
 count :
 	@${PORT_TOOLS}/compute_percent.sh
 

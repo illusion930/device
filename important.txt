@@ -1,0 +1,4 @@
+修改了编译过程
+1.不需要在根目录执行. build/envsetup.sh，改为在device目录(或者你的机型所在目录)执行. setenv.sh
+2.请修改makefile里面的author，channel不需要修改
+3.build目录下有个apps.conf文件，最后的APPS_KEEP_ORIGIN中自行添加需要保留的底包apk
