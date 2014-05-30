@@ -18,7 +18,7 @@ DST_SMALI_OUT := $(addsuffix .jar.out,$(COLOR_FRAMEWORK_JARS))
 TMP_SYSTEM_DIR := ${PWD}/tmp_system
 DST_JAR_OUT := $(addsuffix .jar,$(COLOR_FRAMEWORK_JARS))
 
-include $(PORT_BUILD)/util.mk
+include ${PORT_DEVICE}/util.mk
 
 default :
 	@echo "This is default, do nothing "
@@ -130,9 +130,9 @@ count :
 	@${PORT_TOOLS}/compute_percent.sh
 
 clean :
-	rm -rf out/
-	rm -rf smali/
-	rm -rf temp/
+#	rm -rf out/
+#	rm -rf smali/
+#	rm -rf temp/
 	rm -rf update/
 	rm -rf new-update/
 	rm -rf tmp_system
